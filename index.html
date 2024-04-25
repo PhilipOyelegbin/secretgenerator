@@ -1,0 +1,64 @@
+<html>
+    <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+        <style>
+            *,
+            ::before,
+            ::after {
+                padding: 0;
+                margin: 0;
+                line-height: 1.5;
+                border: none;
+            }
+            body {
+                display: flex;
+                flex-flow: column;
+                justify-content: center;
+                align-items: center;
+                text-align: center;
+                font-size: 14px;
+                height: 100svh;
+                gap: 20px;
+            }
+            button {
+                background: blue;
+                color: white;
+                border-radius: 8px;
+                padding: 8px 16px;
+            }
+        </style>
+    </head>
+    <body>
+        <h2>secretgenerator...</h2>
+        <button on-click="generatePassword()">Generate</button>
+        <p id="secret"></p>
+    </body>
+    <script>
+        function generatePassword() {
+            const characters =
+                "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+
+            const excludedCharacters = `!$%'&*()_"<>/~`;
+
+            const passwordLength = 16;
+
+            const secretElemet = documentgetElementById("secret");
+
+            let password = "";
+
+            for (let i = 0; i < passwordLength; i++) {
+                let randomIndex = Math.floor(Math.random() * characters.length);
+                let randomCharacter = characters[randomIndex];
+                if (!excludedCharacters.includes(randomCharacter)) {
+                    password += randomCharacter;
+                } else {
+                    i--; // decrement the counter to try again
+                }
+            }
+
+            return password;
+            secretElement.textContent = password;
+        }
+        generatePassword();
+    </script>
+</html>
