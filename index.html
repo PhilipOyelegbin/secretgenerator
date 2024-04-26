@@ -100,9 +100,10 @@
 
 	//copyButton.addEventListener('click', () => {
 	function copySecret() {
-		const password = secretOutput.textContent;
-		navigator.clipboard.writeText(password);
-		alert('Password copied to clipboard!');
+		const secretOutput = document.getElementById("secret_output");
+		const secret = secretOutput.textContent;
+		navigator.clipboard.writeText(secret);
+		alert('Secret copied to clipboard!');
 	}
 	//});
     </script>
