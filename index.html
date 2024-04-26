@@ -17,7 +17,7 @@
                 background: #444 url("https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595831.jpg?t=st=1714145100~exp=1714148700~hmac=b5212d451d876cb36d69c9bee4946a5f6a03ea882d79e7467009538796d0fa21&w=740") no-repeat;
                 background-position: center;
                 background-size: cover;
-                background-blend-mode: darken;
+                background-blend-mode: overlay;
                 display: flex;
                 flex-flow: column;
                 justify-content: center;
@@ -52,7 +52,7 @@
     </body>
     <script>
         function generateSecret() {
-            const characters = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
+            const characters = `ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789!@#$%&*()_-=+{}[]:;,.?/`;
 
             const excludedCharacters = `!$%'&*()_"<>/~`;
 
