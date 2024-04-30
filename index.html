@@ -14,7 +14,7 @@
                 border: none;
             }
             body {
-                background: #444 url("https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595831.jpg?t=st=1714145100~exp=1714148700~hmac=b5212d451d876cb36d69c9bee4946a5f6a03ea882d79e7467009538796d0fa21&w=740") no-repeat;
+                background: #333 url("https://img.freepik.com/free-photo/standard-quality-control-collage-concept_23-2149595831.jpg?t=st=1714145100~exp=1714148700~hmac=b5212d451d876cb36d69c9bee4946a5f6a03ea882d79e7467009538796d0fa21&w=740") no-repeat;
                 background-position: center;
                 background-size: cover;
                 background-blend-mode: overlay;
@@ -38,6 +38,7 @@
                 color: white;
                 border-radius: 8px;
                 padding: 8px 16px;
+		cursor: pointer;
                 transition: all 300ms ease-in-out;
             }
             .btn1:hover {
@@ -49,6 +50,7 @@
                 border: 1px solid blue;
                 border-radius: 8px;
                 padding: 8px 16px;
+		cursor: pointer;
                 transition: all 300ms ease-in-out;
             }
             .btn2:hover {
@@ -69,7 +71,7 @@
         <h2>Secret Generator App</h2>
         <button class="btn1" onclick="generateSecret()">Generate</button>
         <p id="secret_output">Your secret will appear here...</p>
-	<button class="btn2" onclick="copySecret()">Copy</button>
+	<button class="btn2" id="copy_secret">Copy</button>
     </body>
     <script>
         function generateSecret() {
@@ -94,17 +96,20 @@
             }
 
             secretOutput.textContent = secret;
-        }
+        };
 
-	//const copyButton = document.getElementById('copy-button');
-
-	//copyButton.addEventListener('click', () => {
-	function copySecret() {
-		const secretOutput = document.getElementById("secret_output");
-		const secret = secretOutput.textContent;
-		navigator.clipboard.writeText(secret);
-		alert('Secret copied to clipboard!');
-	}
-	//});
+	const copyButton = document.getElementById('copy_secret');
+	copyButton.addEventListener('click', () => {
+	    const secretOutput = document.getElementById("secret_output");
+	    const secret = secretOutput.textContent;
+	    navigator.clipboard.writeText(secret);
+	    alert('Secret copied to clipboard!');
+	});
+	//function copySecret() {
+		//const secretOutput = document.getElementById("secret_output");
+		//const secret = secretOutput.textContent;
+		//navigator.clipboard.writeText(secret);
+		//alert('Secret copied to clipboard!');
+	//};
     </script>
 </html>
