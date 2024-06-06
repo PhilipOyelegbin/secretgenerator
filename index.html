@@ -57,7 +57,7 @@
                 background: #eee;
             }
 
-	    @media screen (min-width: 768px) {
+	    @media screen and (min-width: 768px) {
 		    body {
 			    padding: 0 80px;
 		    }
@@ -103,13 +103,14 @@
 	    const secretOutput = document.getElementById("secret_output");
 	    const secret = secretOutput.textContent;
 	    navigator.clipboard.writeText(secret);
+        setTimeout(() => {
+            copyButton.innerHTML ='Copied to clipboard!';
+            return (
+                    setTimeout(() => {
+                        copyButton.innerHTML = "Copy";
+                    }, 1000)
+            )
+        }, 1000);       
 	});
-
-	//function copySecret() {
-		//const secretOutput = document.getElementById("secret_output");
-		//const secret = secretOutput.textContent;
-		//navigator.clipboard.writeText(secret);
-		//alert('Secret copied to clipboard!');
-	//};
     </script>
 </html>
